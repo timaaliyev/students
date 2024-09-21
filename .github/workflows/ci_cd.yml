@@ -30,7 +30,6 @@ jobs:
       - name: Build and push Docker image
         run: |
           docker-compose -f docker-compose.yml build
-          docker tag pair-game_app ${{ secrets.DOCKER_USERNAME }}/students
           docker push ${{ secrets.DOCKER_USERNAME }}/students
 
       - name: Deploy to server via SSH
