@@ -7,5 +7,7 @@ services:
             - "7000:3000"
     nginx:
         restart: always
+        build:
+            context: .
         ports:
             - "3013:80"
