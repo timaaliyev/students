@@ -52,9 +52,10 @@ function getStudentItem(studentObj) {
       return;
     }
     tableRow.remove();
-    await fetch(`http://localhost:3000/api/students/${studentObj.id}`) ,{
-      method: 'DELETE',
-  }
+    await fetch(`/api/students/${studentObj.id}`),
+      {
+        method: "DELETE",
+      };
   })
 
 
@@ -79,7 +80,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 
 async function getStudentList() {
-  const response = await fetch(`http://localhost:3000/api/students`);
+  const response = await fetch(`/api/students`);
   const studentList = await response.json();
 
   return studentList
@@ -213,20 +214,19 @@ function addToTable() {
     if (firstName.classList.contains('is-invalid') || surname.classList.contains('is-invalid') || lastname.classList.contains('is-invalid') || faculty.classList.contains('is-invalid') || birthday.classList.contains('is-invalid') || studyStart.classList.contains('is-invalid'))  {
 
   } else {
-      const response = await fetch('http://localhost:3000/api/students', {
-        method: 'POST',
+      const response = await fetch("/api/students", {
+        method: "POST",
         body: JSON.stringify({
           name: firstName.value,
           surname: surname.value,
           lastname: lastname.value,
           faculty: faculty.value,
           birthday: birthday.valueAsDate,
-          studyStart: studyStart.value
-
+          studyStart: studyStart.value,
         }),
         headers: {
-          'Content-Type': 'application/json',
-        }
+          "Content-Type": "application/json",
+        },
       });
       const student = await response.json();
       studentsList.push(student);
