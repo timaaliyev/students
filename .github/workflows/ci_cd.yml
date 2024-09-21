@@ -37,6 +37,12 @@ jobs:
     needs: build
 
     steps:
+      - name: Verify project files and structure
+        run: |
+          ls -la
+          ls -la ./client
+        shell: bash
+        
       - name: Deploy to server via SSH and create necessary directories
         uses: appleboy/ssh-action@v0.1.5
         with:
