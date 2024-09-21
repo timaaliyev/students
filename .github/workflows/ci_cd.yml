@@ -32,11 +32,6 @@ jobs:
           docker-compose -f docker-compose.yml build
           docker-compose push
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-
-    steps:
       - name: Verify project files and structure
         run: |
           ls -la
