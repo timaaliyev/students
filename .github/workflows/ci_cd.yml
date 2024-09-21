@@ -30,8 +30,8 @@ jobs:
       - name: Build and push Docker image
         run: |
           docker-compose -f docker-compose.yml build
-          docker tag students_app ${{ secrets.DOCKER_USERNAME }}/students:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/students:latest
+          docker-compose push
+
 
       - name: Deploy to server via SSH
         uses: appleboy/ssh-action@v0.1.5
