@@ -3,13 +3,13 @@ services:
     nodeserver:
         build:
             context: ./
-        image: ansiya/students/nodeserver
+        image: ansiya/students_nodeserver
         ports:
             - "7000:3000"
     nginx:
         restart: always
         build:
             context: ./client
-        image: ansiya/students/nginx
+        image: ansiya/students_nginx
         ports:
             - "3013:80"
