@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+    nodeserver:
+        build:
+            context: ./backend
+        ports:
+            - "7000:3000"
+    nginx:
+        restart: always
+        build:
+            context: ./
+        ports:
+            - "3013:80"
